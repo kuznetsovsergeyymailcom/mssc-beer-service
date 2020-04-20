@@ -15,7 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Beer implements Serializable {
+public class BeerDto implements Serializable {
 
    private UUID id;
    private Integer version;

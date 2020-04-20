@@ -1,6 +1,6 @@
 package kss.springframework.msscbeerservice.web.controller;
 
-import kss.springframework.msscbeerservice.web.model.Beer;
+import kss.springframework.msscbeerservice.web.model.BeerDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,19 +13,19 @@ import java.util.UUID;
 public class BeerController {
 
     @GetMapping("/{uuid}")
-    public ResponseEntity<Beer> getBeerById(@PathVariable("uuid") UUID uuid){
-        return new ResponseEntity<>(Beer.builder().build(), HttpStatus.OK);
+    public ResponseEntity<BeerDto> getBeerById(@PathVariable("uuid") UUID uuid){
+        return new ResponseEntity<>(BeerDto.builder().build(), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity saveNewBeer(@RequestBody Beer beer){
+    public ResponseEntity saveNewBeer(@RequestBody BeerDto beer){
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Location", "api/v1/beer/" + beer.getId());
         return new ResponseEntity(httpHeaders, HttpStatus.CREATED);
     }
 
     @PutMapping("/{uuid}")
-    public ResponseEntity updateBeerById(@PathVariable("uuid") UUID uuid, @RequestBody Beer beer){
+    public ResponseEntity updateBeerById(@PathVariable("uuid") UUID uuid, @RequestBody BeerDto beer){
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }
