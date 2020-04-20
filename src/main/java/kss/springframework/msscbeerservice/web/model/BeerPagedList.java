@@ -10,13 +10,13 @@ import java.util.List;
 /**
  * Created by jt on 2019-05-12.
  */
-public class BeerPagedList extends PageImpl<Beer> implements Serializable {
+public class BeerPagedList extends PageImpl<BeerDto> implements Serializable {
 
-    public BeerPagedList(List<Beer> content, Pageable pageable, long total) {
+    public BeerPagedList(List<BeerDto> content, Pageable pageable, long total) {
         super(content, pageable, total);
     }
 
-    public BeerPagedList(List<Beer> content) {
+    public BeerPagedList(List<BeerDto> content) {
         super(content);
     }
 }
