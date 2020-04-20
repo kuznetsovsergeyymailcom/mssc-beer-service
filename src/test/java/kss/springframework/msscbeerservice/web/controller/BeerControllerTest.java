@@ -1,19 +1,16 @@
 package kss.springframework.msscbeerservice.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import kss.springframework.msscbeerservice.web.model.BeerDto;
+import kss.springframework.msscbeerservice.web.model.Beer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyBoolean;
-import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -35,7 +32,7 @@ class BeerControllerTest {
     @Test
     void saveNewBeer() throws Exception {
 
-        BeerDto build = BeerDto.builder().build();
+        Beer build = Beer.builder().build();
         String beer_json = objectMapper.writeValueAsString(build);
         mockMvc.perform(post("/api/v1/beer")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -44,7 +41,7 @@ class BeerControllerTest {
 
     @Test
     void updateBeerById() throws Exception {
-        BeerDto build = BeerDto.builder().build();
+        Beer build = Beer.builder().build();
         String beer_json = objectMapper.writeValueAsString(build);
         mockMvc.perform(put("/api/v1/beer/" + UUID.randomUUID().toString())
                 .contentType(MediaType.APPLICATION_JSON)
