@@ -1,4 +1,4 @@
-package kss.springframework.msscbeerservice.web.domain;
+package kss.springframework.msscbeerservice.domain;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -36,7 +36,7 @@ public class Beer {
     private String beerStyle;
 
     @Column(unique = true)
-    private Long upc;
+    private String upc;
     private BigDecimal price;
 
     private Integer minOnHand;

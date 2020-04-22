@@ -1,6 +1,6 @@
-package kss.springframework.msscbeerservice.web.repositories;
+package kss.springframework.msscbeerservice.repositories;
 
-import kss.springframework.msscbeerservice.web.domain.Beer;
+import kss.springframework.msscbeerservice.domain.Beer;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.UUID;

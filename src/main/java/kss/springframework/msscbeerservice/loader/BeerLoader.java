@@ -1,7 +1,7 @@
-package kss.springframework.msscbeerservice.web.loader;
+package kss.springframework.msscbeerservice.loader;
 
-import kss.springframework.msscbeerservice.web.domain.Beer;
-import kss.springframework.msscbeerservice.web.repositories.BeerRepository;
+import kss.springframework.msscbeerservice.domain.Beer;
+import kss.springframework.msscbeerservice.repositories.BeerRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +9,10 @@ import java.math.BigDecimal;
 
 @Component
 public class BeerLoader implements CommandLineRunner {
+    private static final String BEER_UPC_1 = "678234589234";
+    private static final String BEER_UPC_2 = "66782349134";
+    private static final String BEER_UPC_3 = "087892346725";
+
     private final BeerRepository beerRepository;
 
     public BeerLoader(BeerRepository beerRepository) {
@@ -27,7 +31,7 @@ public class BeerLoader implements CommandLineRunner {
                     .beerStyle("IPA")
                     .quantityToBrew(200)
                     .minOnHand(12)
-                    .upc(678346578L)
+                    .upc(BEER_UPC_1)
                     .price(new BigDecimal("12.45"))
                     .build()
             );
@@ -37,12 +41,22 @@ public class BeerLoader implements CommandLineRunner {
                     .beerStyle("ALE")
                     .quantityToBrew(130)
                     .minOnHand(5)
-                    .upc(67862734578L)
+                    .upc(BEER_UPC_2)
                     .price(new BigDecimal("23.80"))
+                    .build()
+            );
+            beerRepository.save(Beer.builder()
+                    .beerName("New beer 3")
+                    .beerStyle("WHEAT")
+                    .quantityToBrew(90)
+                    .minOnHand(29)
+                    .upc(BEER_UPC_3)
+                    .price(new BigDecimal("28.17"))
                     .build()
             );
         }
 
         System.out.println("Count of loaded beer: " + beerRepository.count());
+        beerRepository.findAll().forEach(beer -> System.out.println(beer.getId()));
     }
 }
