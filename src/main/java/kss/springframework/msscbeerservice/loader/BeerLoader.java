@@ -6,12 +6,16 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Component
 public class BeerLoader implements CommandLineRunner {
-    private static final String BEER_UPC_1 = "678234589234";
-    private static final String BEER_UPC_2 = "66782349134";
-    private static final String BEER_UPC_3 = "087892346725";
+    public static final String BEER_UPC_1 = "678234589234";
+    public static final String BEER_UPC_2 = "66782349134";
+    public static final String BEER_UPC_3 = "087892346725";
+    public static final UUID BEER_1_UUID = UUID.fromString("0a818933-087d-47f2-ad83-2f986ed087eb");
+    public static final UUID BEER_2_UUID = UUID.fromString("a712d914-61ea-4623-8bd0-32c0f6545bfd");
+    public static final UUID BEER_3_UUID = UUID.fromString("026cc3c8-3a0c-4083-a05b-e908048c1b08");
 
     private final BeerRepository beerRepository;
 
@@ -21,7 +25,7 @@ public class BeerLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       loadBeer();
+       //loadBeer();
     }
 
     private void loadBeer() {
