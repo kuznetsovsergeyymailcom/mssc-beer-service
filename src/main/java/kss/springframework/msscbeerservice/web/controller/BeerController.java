@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/beer")
+@RequestMapping("/api/v1")
 @RestController
 public class BeerController {
     private static final Integer DEFAULT_PAGE_NUMBER = 0;
@@ -23,7 +23,7 @@ public class BeerController {
 
     private final BeerService beerService;
 
-    @GetMapping(produces = { "application/json" })
+    @GetMapping(produces = { "application/json" }, path = "beer")
     public ResponseEntity<BeerPagedList> listBeers(@RequestParam(value = "pageNumber", required = false) Integer pageNumber,
                                                    @RequestParam(value = "pageSize", required = false) Integer pageSize,
                                                    @RequestParam(value = "beerName", required = false) String beerName,
@@ -46,7 +46,7 @@ public class BeerController {
         return new ResponseEntity<>(beerList, HttpStatus.OK);
     }
 
-    @GetMapping("/{uuid}")
+    @GetMapping("beer/{uuid}")
     public ResponseEntity<BeerDto> getBeerById(@PathVariable("uuid") UUID uuid,
                                                @RequestParam(value = "showInventoryOnHand", required = false) Boolean showInventoryOnHand){
         if(showInventoryOnHand == null){
@@ -57,7 +57,7 @@ public class BeerController {
         return new ResponseEntity<>(beerById, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping(path = "beer")
     public ResponseEntity saveNewBeer(@RequestBody @Validated BeerDto beer){
         beerService.saveNewBeer(beer);
 
@@ -66,9 +66,15 @@ public class BeerController {
         return new ResponseEntity(httpHeaders, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{uuid}")
+    @PutMapping("beer/{uuid}")
     public ResponseEntity updateBeerById(@PathVariable("uuid") UUID uuid, @RequestBody @Validated BeerDto beer){
         beerService.updateBeerDto(uuid, beer);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("beerUpc/{upc}")
+    public ResponseEntity getBeerByUPC(@PathVariable("upc") String upc){
+        BeerDto beerByUPC = beerService.findByUpc(upc);
+        return new ResponseEntity<>(beerByUPC, HttpStatus.OK);
     }
 }
