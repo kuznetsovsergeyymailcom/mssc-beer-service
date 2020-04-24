@@ -42,6 +42,7 @@ public class BeerController {
         }
 
         BeerPagedList beerList = beerService.listBeers(beerName, beerStyle, PageRequest.of(pageNumber, pageSize), showInventoryOnHand);
+        beerList.get().forEach(System.out::println);
 
         return new ResponseEntity<>(beerList, HttpStatus.OK);
     }
@@ -74,6 +75,7 @@ public class BeerController {
 
     @GetMapping("beerUpc/{upc}")
     public ResponseEntity getBeerByUPC(@PathVariable("upc") String upc){
+
         BeerDto beerByUPC = beerService.findByUpc(upc);
         return new ResponseEntity<>(beerByUPC, HttpStatus.OK);
     }

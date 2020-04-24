@@ -25,11 +25,13 @@ public class BeerLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       //loadBeer();
+        if(beerRepository.count() == 0){
+            loadBeer();
+        }
     }
 
     private void loadBeer() {
-        if(beerRepository.count() == 0){
+
             beerRepository.save(Beer.builder()
                     .beerName("New beer 1")
                     .beerStyle("IPA")
@@ -58,9 +60,9 @@ public class BeerLoader implements CommandLineRunner {
                     .price(new BigDecimal("28.17"))
                     .build()
             );
-        }
+
 
         System.out.println("Count of loaded beer: " + beerRepository.count());
-        beerRepository.findAll().forEach(beer -> System.out.println(beer.getId()));
+        beerRepository.findAll().forEach(beer -> System.out.println(beer.getUpc()));
     }
 }
