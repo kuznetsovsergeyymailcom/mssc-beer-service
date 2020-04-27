@@ -2,10 +2,10 @@ package kss.springframework.msscbeerservice.services.brewing;
 
 import kss.springframework.msscbeerservice.config.JMSConfig;
 import kss.springframework.msscbeerservice.domain.Beer;
-import kss.springframework.common.events.BrewBeerEvent;
-import kss.springframework.common.events.NewInventoryEvent;
+import kss.brewery.model.events.BrewBeerEvent;
+import kss.brewery.model.events.NewInventoryEvent;
 import kss.springframework.msscbeerservice.repositories.BeerRepository;
-import kss.springframework.msscbeerservice.web.model.BeerDto;
+import kss.brewery.model.BeerDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.annotation.JmsListener;

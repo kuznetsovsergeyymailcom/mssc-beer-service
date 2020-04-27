@@ -1,8 +1,8 @@
 package kss.springframework.msscbeerservice.services;
 
-import kss.springframework.msscbeerservice.web.model.BeerDto;
-import kss.springframework.msscbeerservice.web.model.BeerPagedList;
-import kss.springframework.msscbeerservice.web.model.BeerStyleEnum;
+import kss.brewery.model.BeerDto;
+import kss.brewery.model.BeerPagedList;
+import kss.brewery.model.BeerStyleEnum;
 import org.springframework.data.domain.PageRequest;
 
 import java.util.UUID;

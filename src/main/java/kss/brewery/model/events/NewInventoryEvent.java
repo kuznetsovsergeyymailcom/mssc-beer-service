@@ -1,6 +1,6 @@
-package kss.springframework.common.events;
+package kss.brewery.model.events;
 
-import kss.springframework.msscbeerservice.web.model.BeerDto;
+import kss.brewery.model.BeerDto;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor

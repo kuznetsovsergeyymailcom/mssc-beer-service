@@ -1,4 +1,4 @@
-package kss.springframework.msscbeerservice.web.model;
+package kss.brewery.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;

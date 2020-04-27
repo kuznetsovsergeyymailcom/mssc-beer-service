@@ -2,8 +2,8 @@ package kss.springframework.msscbeerservice.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kss.springframework.msscbeerservice.services.BeerService;
-import kss.springframework.msscbeerservice.web.model.BeerDto;
-import kss.springframework.msscbeerservice.web.model.BeerStyleEnum;
+import kss.brewery.model.BeerDto;
+import kss.brewery.model.BeerStyleEnum;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

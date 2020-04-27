@@ -2,7 +2,7 @@ package kss.springframework.msscbeerservice.web.mappers;
 
 
 import kss.springframework.msscbeerservice.domain.Beer;
-import kss.springframework.msscbeerservice.web.model.BeerDto;
+import kss.brewery.model.BeerDto;
 import org.mapstruct.DecoratedWith;
 import org.mapstruct.Mapper;
 

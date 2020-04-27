@@ -14,7 +14,6 @@
     <name>mssc-beer-service</name>
     <description>Demo project for Spring Boot</description>
 
-
     <dependencies>
 
         <dependency>
